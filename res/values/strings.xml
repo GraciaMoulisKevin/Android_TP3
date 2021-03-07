@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TP3</string>
+    <string name="nom">Enter your surname</string>
+    <string name="prenom">Enter your name</string>
+    <string name="age">Enter your age</string>
+    <string name="num">Enter your phone number</string>
+    <string name="mdp">Enter your password</string>
+</resources>
