@@ -2,6 +2,7 @@ package com.example.tp3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,7 @@ public class Exercice1 extends AppCompatActivity {
     private EditText mdp;
     private Button button;
     private Button buttonBack;
+    private Button exo6;
     private TextView cpt;
 
     private int check = 0;
@@ -49,6 +51,7 @@ public class Exercice1 extends AppCompatActivity {
         mdp = (EditText) findViewById(R.id.mdp);
         button = (Button) findViewById(R.id.button);
         buttonBack = (Button) findViewById(R.id.buttonBack);
+        exo6 = (Button) findViewById(R.id.go_exo6);
 
         goExo4 = (Button) findViewById(R.id.go_exo4);
 
@@ -164,6 +167,15 @@ public class Exercice1 extends AppCompatActivity {
                                 "mdp : " + mdp.getText().toString() + '\n' ;
                     osw.write(txt);
                     osw.close();
+
+
+                    Database db = Room.databaseBuilder(getApplicationContext(),Database.class, "database_TP3").build();
+                    UserDao userDao = db.userDao();
+                    User user = new User(nom.getText().toString(),prenom.getText().toString(),age.getText().toString(),num.getText().toString(),mdp.getText().toString());
+
+                    userDao.insert(user);
+
+
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -188,6 +200,15 @@ public class Exercice1 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent exo4 = new Intent(Exercice1.this, Exercice4.class);
                 startActivity(exo4);
+            }
+        });
+
+        // Exercice 6
+        exo6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent exo6 = new Intent(Exercice1.this, Exercice6.class);
+                startActivity(exo6);
             }
         });
     }

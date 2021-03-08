@@ -90,5 +90,13 @@
         android:layout_gravity="center_horizontal"
         android:text="Affiche Planning" />
 
+    <Button
+        android:id="@+id/go_exo6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Affiche Database" />
+
 
 </LinearLayout>

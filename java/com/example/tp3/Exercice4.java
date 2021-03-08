@@ -31,23 +31,10 @@ public class Exercice4 extends AppCompatActivity {
         t4.setText("16h-18h : "+planning.get4());
 
         // Exercice 5
-        viewPlanning = new viewPlanning(planning).get(viewPlanning.class);
+        viewPlanning = new viewPlanning(planning);
+        planning = viewPlanning.getData();
 
-        final Observer<String> observer = new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                t1.setText("08h-10h : "+planning.get1());
-                t2.setText("10h-12h : "+planning.get2());
-                t3.setText("14h-16h : "+planning.get3());
-                t4.setText("16h-18h : "+planning.get4());
-            }
-        };
-
-        viewPlanning.observe();
-
-        String[] data = new String[4];
-
-        planning.update(data);
+        //planning.update(data);
 
     }
 }
